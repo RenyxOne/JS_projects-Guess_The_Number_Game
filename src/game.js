@@ -51,9 +51,8 @@ class Guess {
     }
 }
 class Game {
-    #reader; #writer; #secret; #guess; #maxAttempts; #attempt; #endGameMsg;
-    constructor(input, output, secret, guess, maxAttempts) {
-        this.#reader = input;
+    #writer; #secret; #guess; #maxAttempts; #attempt; #endGameMsg;
+    constructor(output, secret, guess, maxAttempts) {
         this.#writer = output;
         this.#maxAttempts = maxAttempts;
         this.#attempt = null;
@@ -94,7 +93,7 @@ const userOutput = new ConsoleWrite();
 const secret = new Secret();
 const guess = new Guess(userInput, userOutput);
 
-const game = new Game(userInput, userOutput, secret, guess, 5);
+const game = new Game(userOutput, secret, guess, 5);
 
 game.play()
 
