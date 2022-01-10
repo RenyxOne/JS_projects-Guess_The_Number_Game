@@ -1,6 +1,5 @@
 class Secret {
     #num;
-    #min;
     constructor() {
         this.#num = null;
     }
