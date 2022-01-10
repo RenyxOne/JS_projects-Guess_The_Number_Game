@@ -1,9 +1,9 @@
 class GuessTheNumberLogic {
-    #secret; #guess; #maxAttempts; #attempt; results;
-    constructor(secret, guess, maxAttempts) {
+    #secretGenerator; #secret; #guess; #maxAttempts; #attempt; results;
+    constructor(secretGenerator, guess, maxAttempts) {
         this.#maxAttempts = maxAttempts;
         this.#attempt = null;
-        this.#secret = secret;
+        this.#secretGenerator = secretGenerator;
         this.#guess = guess;
         this.results = {
             'Win' : {
@@ -28,7 +28,7 @@ class GuessTheNumberLogic {
 
     prepareGame () {
         this.#attempt = 0;
-        this.#secret.generateNum();
+        this.#secret = this.#secretGenerator.generateSecret();
     }
 
     #compareUserAndComputerNums(){
@@ -36,7 +36,7 @@ class GuessTheNumberLogic {
     }
 
     round(){
-        if (this.#attempt == this.#maxAttempts){
+        if (this.#attempt === this.#maxAttempts){
             return this.results['Lose'];
         }
         this.#attempt++;
