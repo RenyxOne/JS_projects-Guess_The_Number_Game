@@ -1,7 +1,10 @@
-const Secret = require("./Secret");
 class SecretGenerator {
+    #Secret;
+    constructor(Secret) {
+        this.#Secret = Secret;
+    }
     generateSecret () {
-        return new Secret();
+        return new this.#Secret();
     }
 }
 module.exports = SecretGenerator;
