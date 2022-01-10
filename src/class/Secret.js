@@ -1,7 +1,7 @@
 class Secret {
     #num;
     constructor() {
-        this.#num = null;
+        this.generateNum();
     }
     generateNum(){
         this.#num = Math.floor(Math.random() * 100);
